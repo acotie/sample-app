@@ -23,6 +23,10 @@ jobs:
           command: bundle check || bundle install
 
       - run: 
+          name: jasmine install
+          command: rails generate jasmine_rails:install
+
+      - run: 
           name: exec spec:javascript
           command: bundle exec rake spec:javascript
 
