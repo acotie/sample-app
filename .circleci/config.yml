@@ -17,7 +17,16 @@ jobs:
       - run: 
           name: Which bundler?
           command: bundle -v
-      - ruby/bundle-install
+
+      - run: 
+          name: bundle install
+          command: bundle check || bundle install
+
+      - run: 
+          name: exec spec:javascript
+          command: bundle exec rake spec:javascript
+
+
 
 # What to do next? Set up a test job. Please see 
 # https://circleci.com/docs/2.0/configuration-reference/, for more  info on how to get started.
